@@ -1,0 +1,17 @@
+import socket
+# Socket = Communication endpoint
+client = socket.socket(
+    socket.AF_INET,
+    socket.SOCK_STREAM
+)
+# Create an IPv4 TCP client socket.
+# AF_INET = IPv4
+# SOCK_STREAM = TCP
+client.connect(("127.0.0.1", 9999))
+# Receive data from the server.
+# 1024 = maximum number of bytes to receive.
+message = client.recv(1024)
+# .decode() = Bytes → Text
+print(message.decode())
+# Close the connection
+client.close()
